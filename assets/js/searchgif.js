@@ -23,10 +23,6 @@ $(document).ready(function () {
         console.log("f:settopicItem - START")
         $(".topic-display").empty();
 
-
-
-
-
         console.log("topic.data.length" + topic.data.length);
 
         if (topic.data.length < 1) {
@@ -44,14 +40,38 @@ $(document).ready(function () {
             div1.append(div);
 
             const img = $("<img>");
-            img.addClass("my-2");
+            img.addClass("gif mb-2");
             img.attr("src", topic.data[x].images.fixed_height.url);
+            img.attr("data-animate", topic.data[x].images.fixed_height.url);
+            img.attr("data-state", "animate");
+            img.attr("data-still", topic.data[x].images.fixed_height_still.url);
             console.log("TEST: " + topic.data[x].images.fixed_height.url);
             img.css("height", "200px");
             div1.append(img);
             $(".topic-display").append(div1);
 
         }
+
+        $(".gif").on("click", function () {
+            console.log("f:GIFonclick - START");
+            console.log($(this));
+            let gif = $(this);
+            let state = $(this).attr("data-state");
+
+            console.log("Data State : " + state);
+            if (state == "still") {
+                // gif.attr("src", gif.attr("data-animate"));
+                // gif.attr("data-state", "animate");
+                $(this).attr("src", gif.attr("data-animate"));
+                $(this).attr("data-state", "animate");
+            }
+            else if (state == "animate") {
+                // gif.attr("src", gif.attr("data-still"));
+                // gif.attr("data-state", "still");
+                $(this).attr("src", gif.attr("data-still"));
+                $(this).attr("data-state", "still");
+            }
+        });
 
     }
 
