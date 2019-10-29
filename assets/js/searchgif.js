@@ -13,26 +13,33 @@ $(document).ready(function () {
             const button = $('<button>');
             button.text(topics[x]);
             button.attr('value', topics[x]);
-            button.addClass("topic-item");
+            button.addClass("topic-item mx-1 my-1");
 
             $("#buttons-view").append(button);
         }
     }
 
-    function alertTitle(topic) {
-        alert(topic.Title);
-    }
-
     function settopicItem(topic) {
+        console.log("f:settopicItem - START")
         $(".topic-display").empty();
 
-        const img = $("<img>");
-        img.attr("src", topic.Poster);
-        $(".topic-display").append(img)
 
-        const p = $('<p>');
-        p.text(topic.Plot)
-        $(".topic-display").append(p);
+
+
+        // const p = $('<p>');
+        // p.text(topic.Plot)
+        // $(".topic-display").append(p);
+        console.log("topic.data.length" + topic.data.length);
+
+        for (x = 0; x < topic.data.length; x++) {
+            const img = $("<img>");
+            img.attr("src", topic.data[x].images.fixed_height.url);
+            console.log("TEST: " + topic.data[x].images.fixed_height.url);
+            img.css("height", "200px");
+            $(".topic-display").append(img)
+
+        }
+
     }
 
     // This function handles events where one button is clicked
