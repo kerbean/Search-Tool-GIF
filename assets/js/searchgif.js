@@ -26,17 +26,30 @@ $(document).ready(function () {
 
 
 
-        // const p = $('<p>');
-        // p.text(topic.Plot)
-        // $(".topic-display").append(p);
+
         console.log("topic.data.length" + topic.data.length);
 
+        if (topic.data.length < 1) {
+            const h1 = $("<h1>");
+            h1.text("NO RESULTS FOUND. TRY SEARCHING ANOTHER KEYWORD, OR CHECK YOUR BROWSER SETTINGS THAT BLOCKS COOKIES.");
+            $(".topic-display").append(h1);
+        }
+        // console.log(topic.data.length);
+
         for (x = 0; x < topic.data.length; x++) {
+            const div1 = $('<div>');
+            const div = $('<div>');
+            div.addClass("mt-2");
+            div.text("Rating: " + topic.data[x].rating);
+            div1.append(div);
+
             const img = $("<img>");
+            img.addClass("my-2");
             img.attr("src", topic.data[x].images.fixed_height.url);
             console.log("TEST: " + topic.data[x].images.fixed_height.url);
             img.css("height", "200px");
-            $(".topic-display").append(img)
+            div1.append(img);
+            $(".topic-display").append(div1);
 
         }
 
