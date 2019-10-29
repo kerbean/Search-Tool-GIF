@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Search GIFs</title>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" />
+</head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="assets/js/searchgif.js"></script>
+
+<body>
+    <div class="container">
+        <h1>SEARCH FOR GIF!!</h1>
+
+        <!-- topics will get dumped here -->
+        <div id="buttons-view"></div>
+
+        <div class=row>
+            <div class="col-lg-9">
+                <div class="topic-display text-center"></div>
+            </div>
+            <div class="col-lg-3">
+                <form id="topic-form">
+                    <label for="topic-input">Add an animal</label>
+                    <input type="text" id="topic-input"><br>
+
+                    <!-- Button triggers new topic to be added -->
+                    <input id="add-topic" type="button" value="Add a topic, Yo!">
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
